@@ -11,8 +11,19 @@
       max-width: 800px;
       margin: 0 auto;
       background-color: #000;
+      background-image: url('фон форма.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       color: #fff;
     }
+
+    @media (max-width: 768px) {
+      body {
+        background-image: url('Group 78.png');
+      }
+    }
+
     h2 {
       color: #f26eff;
     }
@@ -65,8 +76,8 @@
 
   <h2>Договор оферты</h2>
 
-  <!-- PDF оферта -->
-  <iframe src="offer.pdf"></iframe>
+  <!-- Google Docs Viewer для PDF -->
+  <iframe src="https://docs.google.com/gview?url=https://roserecords.github.io/form/offer.pdf&embedded=true"></iframe>
 
   <!-- Чекбоксы -->
   <label><input type="checkbox" id="cb1"> Ознакомлен(а) с условиями оферты</label>
