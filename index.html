@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Договор оферты</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ccc;
+      border: none;
+      border-radius: 5px;
+      cursor: not-allowed;
+    }
+    button.enabled {
+      background-color: #2E8B57;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Договор оферты</h2>
+
+  <!-- PDF оферта -->
+  <iframe src="offer.pdf"></iframe>
+
+  <!-- Чекбоксы -->
+  <label><input type="checkbox" id="cb1"> Ознакомлен(а) с условиями оферты</label>
+  <label><input type="checkbox" id="cb2"> Согласен(а) с правилами поведения</label>
+  <label><input type="checkbox" id="cb3"> Подтверждаю, что оплачиваю добровольно</label>
+
+  <!-- Кнопка -->
+  <button id="payBtn" disabled>Перейти к оплате</button>
+
+  <p style="margin-top:10px; font-size: 12px; color: #555;">
+    Нажимая "Перейти к оплате", вы подтверждаете своё согласие с условиями оферты.
+  </p>
+
+  <script>
+    const cb1 = document.getElementById('cb1');
+    const cb2 = document.getElementById('cb2');
+    const cb3 = document.getElementById('cb3');
+    const payBtn = document.getElementById('payBtn');
+
+    function updateButtonState() {
+      if (cb1.checked && cb2.checked && cb3.checked) {
+        payBtn.disabled = false;
+        payBtn.classList.add("enabled");
+      } else {
+        payBtn.disabled = true;
+        payBtn.classList.remove("enabled");
+      }
+    }
+
+    cb1.addEventListener('change', updateButtonState);
+    cb2.addEventListener('change', updateButtonState);
+    cb3.addEventListener('change', updateButtonState);
+
+    payBtn.addEventListener('click', function() {
+      if (!payBtn.disabled) {
+        window.location.href = "https://тут-ссылка-на-оплату.ру";
+      }
+    });
+  </script>
+
+</body>
+</html>
